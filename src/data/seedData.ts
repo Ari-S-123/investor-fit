@@ -222,6 +222,516 @@ export const seedStartups: StartupProfile[] = [
             }
         ],
         createdAt: new Date().toISOString()
+    },
+    {
+        id: "startup-9",
+        name: "EduQuest",
+        email: "founders@eduquest.africa",
+        industry: "EdTech",
+        stage: "Seed",
+        raising: 1_200_000,
+        geography: "Africa",
+        description:
+            "Mobile-first learning platform for K-12 students in Sub-Saharan Africa. Works offline with SMS fallback. 200K students across Kenya, Nigeria, and Ghana. Partnered with governments for curriculum alignment.",
+        website: "eduquest.africa",
+        metrics: {
+            customers: 200_000,
+            arr: 400_000,
+            growth: "35% MoM"
+        },
+        founders: [
+            {
+                name: "Amara Okafor",
+                avatarUrl: "https://ui-avatars.com/api/?name=Amara+Okafor&background=16a34a&color=fff&size=128&bold=true"
+            },
+            {
+                name: "Kwame Mensah",
+                avatarUrl: "https://ui-avatars.com/api/?name=Kwame+Mensah&background=ea580c&color=fff&size=128&bold=true"
+            }
+        ],
+        createdAt: new Date().toISOString()
+    },
+    {
+        id: "startup-10",
+        name: "SecureVault",
+        email: "contact@securevault.io",
+        industry: "Cybersecurity",
+        stage: "Series A",
+        raising: 8_000_000,
+        geography: "US",
+        description:
+            "Zero-knowledge encryption platform for enterprise data protection. SOC2 Type II certified. Serving 150 mid-market companies with 99.99% uptime. Founded by former NSA engineers.",
+        website: "securevault.io",
+        metrics: {
+            arr: 4_500_000,
+            customers: 150,
+            growth: "20% MoM"
+        },
+        founders: [
+            {
+                name: "Jennifer Park",
+                avatarUrl: "https://ui-avatars.com/api/?name=Jennifer+Park&background=1e40af&color=fff&size=128&bold=true"
+            },
+            {
+                name: "David Cohen",
+                avatarUrl: "https://ui-avatars.com/api/?name=David+Cohen&background=be123c&color=fff&size=128&bold=true"
+            },
+            {
+                name: "Ahmed Hassan",
+                avatarUrl: "https://ui-avatars.com/api/?name=Ahmed+Hassan&background=0f766e&color=fff&size=128&bold=true"
+            }
+        ],
+        createdAt: new Date().toISOString()
+    },
+    {
+        id: "startup-11",
+        name: "FarmTech Solutions",
+        email: "hello@farmtech.in",
+        industry: "AgTech",
+        stage: "Series A",
+        raising: 6_000_000,
+        geography: "Asia",
+        description:
+            "IoT-based precision agriculture for smallholder farmers in India. AI-driven crop monitoring, soil analysis, and yield prediction. 10K farmers increased yields by 40%. Hardware + SaaS model.",
+        website: "farmtech.in",
+        metrics: {
+            arr: 2_000_000,
+            customers: 10_000,
+            growth: "50% YoY"
+        },
+        founders: [
+            {
+                name: "Priya Sharma",
+                avatarUrl: "https://ui-avatars.com/api/?name=Priya+Sharma&background=15803d&color=fff&size=128&bold=true"
+            },
+            {
+                name: "Arjun Patel",
+                avatarUrl: "https://ui-avatars.com/api/?name=Arjun+Patel&background=c2410c&color=fff&size=128&bold=true"
+            }
+        ],
+        createdAt: new Date().toISOString()
+    },
+    {
+        id: "startup-12",
+        name: "QuantumLeap",
+        email: "team@quantumleap.ai",
+        industry: "DeepTech",
+        stage: "Series B",
+        raising: 25_000_000,
+        geography: "US",
+        description:
+            "Quantum computing chips for drug discovery and materials science. 5 Fortune 100 pharma clients. 3 patents granted, 12 pending. Breakthrough in room-temperature quantum coherence. MIT spinout.",
+        website: "quantumleap.ai",
+        metrics: {
+            arr: 8_000_000,
+            customers: 5
+        },
+        founders: [
+            {
+                name: "Dr. Alan Chen",
+                avatarUrl: "https://ui-avatars.com/api/?name=Alan+Chen&background=5b21b6&color=fff&size=128&bold=true"
+            },
+            {
+                name: "Dr. Rebecca Martinez",
+                avatarUrl: "https://ui-avatars.com/api/?name=Rebecca+Martinez&background=0369a1&color=fff&size=128&bold=true"
+            }
+        ],
+        createdAt: new Date().toISOString()
+    },
+    {
+        id: "startup-13",
+        name: "LogiFlow",
+        email: "founders@logiflow.com",
+        industry: "Logistics",
+        stage: "Seed",
+        raising: 3_500_000,
+        geography: "Europe",
+        description:
+            "AI-powered last-mile delivery optimization for e-commerce. Reducing delivery costs by 30% for 50+ brands across 8 European countries. Processing 100K deliveries monthly with 98% on-time rate.",
+        website: "logiflow.com",
+        metrics: {
+            arr: 1_800_000,
+            customers: 50,
+            growth: "25% MoM"
+        },
+        founders: [
+            {
+                name: "Lucas Weber",
+                avatarUrl: "https://ui-avatars.com/api/?name=Lucas+Weber&background=047857&color=fff&size=128&bold=true"
+            },
+            {
+                name: "Elena Popov",
+                avatarUrl: "https://ui-avatars.com/api/?name=Elena+Popov&background=b91c1c&color=fff&size=128&bold=true"
+            },
+            {
+                name: "Omar Al-Rashid",
+                avatarUrl: "https://ui-avatars.com/api/?name=Omar+AlRashid&background=1d4ed8&color=fff&size=128&bold=true"
+            }
+        ],
+        createdAt: new Date().toISOString()
+    },
+    {
+        id: "startup-14",
+        name: "NeuroPulse",
+        email: "contact@neuropulse.med",
+        industry: "Healthcare",
+        stage: "Series A",
+        raising: 12_000_000,
+        geography: "US",
+        description:
+            "Non-invasive brain-computer interface for paralysis patients. FDA breakthrough device designation. Clinical trials at Johns Hopkins and Mayo Clinic. 89% patient improvement in mobility tasks.",
+        website: "neuropulse.med",
+        metrics: {
+            customers: 45,
+            arr: 3_200_000
+        },
+        founders: [
+            {
+                name: "Dr. Samantha Lee",
+                avatarUrl: "https://ui-avatars.com/api/?name=Samantha+Lee&background=7c2d12&color=fff&size=128&bold=true"
+            },
+            {
+                name: "Dr. Marcus Johnson",
+                avatarUrl: "https://ui-avatars.com/api/?name=Marcus+Johnson&background=4338ca&color=fff&size=128&bold=true"
+            }
+        ],
+        createdAt: new Date().toISOString()
+    },
+    {
+        id: "startup-15",
+        name: "GameForge",
+        email: "hello@gameforge.gg",
+        industry: "Gaming",
+        stage: "Pre-seed",
+        raising: 750_000,
+        geography: "US",
+        description:
+            "No-code game development platform for indie creators. 15K creators built 3K+ games. Viral TikTok growth. Monetization through asset marketplace with 20% take rate. 2M monthly active players.",
+        website: "gameforge.gg",
+        metrics: {
+            customers: 15_000,
+            growth: "60% MoM users"
+        },
+        founders: [
+            {
+                name: "Alex Rivera",
+                avatarUrl: "https://ui-avatars.com/api/?name=Alex+Rivera&background=9333ea&color=fff&size=128&bold=true"
+            },
+            {
+                name: "Jordan Lee",
+                avatarUrl: "https://ui-avatars.com/api/?name=Jordan+Lee&background=dc2626&color=fff&size=128&bold=true"
+            }
+        ],
+        createdAt: new Date().toISOString()
+    },
+    {
+        id: "startup-16",
+        name: "AquaPure",
+        email: "team@aquapure.tech",
+        industry: "Climate Tech",
+        stage: "Seed",
+        raising: 2_500_000,
+        geography: "Middle East",
+        description:
+            "Low-cost desalination technology using renewable energy. Deployed in UAE and Saudi Arabia. 50% cheaper than traditional methods. MOUs with 3 governments. Addressing water scarcity crisis.",
+        website: "aquapure.tech",
+        metrics: {
+            customers: 8,
+            arr: 900_000
+        },
+        founders: [
+            {
+                name: "Dr. Fatima Al-Mansouri",
+                avatarUrl: "https://ui-avatars.com/api/?name=Fatima+AlMansouri&background=0284c7&color=fff&size=128&bold=true"
+            },
+            {
+                name: "Ibrahim Khalil",
+                avatarUrl: "https://ui-avatars.com/api/?name=Ibrahim+Khalil&background=059669&color=fff&size=128&bold=true"
+            }
+        ],
+        createdAt: new Date().toISOString()
+    },
+    {
+        id: "startup-17",
+        name: "TalentBridge",
+        email: "founders@talentbridge.io",
+        industry: "HR Tech",
+        stage: "Seed",
+        raising: 1_800_000,
+        geography: "Europe",
+        description:
+            "AI-powered technical hiring platform removing resume bias. 300 companies including 15 unicorns. Improved diversity hiring by 45%. 95% candidate satisfaction. Processing 10K interviews monthly.",
+        website: "talentbridge.io",
+        metrics: {
+            arr: 1_100_000,
+            customers: 300,
+            growth: "30% MoM"
+        },
+        founders: [
+            {
+                name: "Nina Kowalski",
+                avatarUrl: "https://ui-avatars.com/api/?name=Nina+Kowalski&background=be185d&color=fff&size=128&bold=true"
+            },
+            {
+                name: "Jamal Williams",
+                avatarUrl: "https://ui-avatars.com/api/?name=Jamal+Williams&background=0891b2&color=fff&size=128&bold=true"
+            }
+        ],
+        createdAt: new Date().toISOString()
+    },
+    {
+        id: "startup-18",
+        name: "NeoBanc",
+        email: "hello@neobanc.com",
+        industry: "Fintech",
+        stage: "Series A",
+        raising: 15_000_000,
+        geography: "Southeast Asia",
+        description:
+            "Digital bank for unbanked populations in Vietnam and Thailand. 500K accounts opened. Micro-lending with AI credit scoring. 2% default rate vs 8% industry average. Licensed in 3 countries.",
+        website: "neobanc.com",
+        metrics: {
+            arr: 6_000_000,
+            customers: 500_000,
+            growth: "40% QoQ"
+        },
+        founders: [
+            {
+                name: "Linh Nguyen",
+                avatarUrl: "https://ui-avatars.com/api/?name=Linh+Nguyen&background=6366f1&color=fff&size=128&bold=true"
+            },
+            {
+                name: "Somchai Wong",
+                avatarUrl: "https://ui-avatars.com/api/?name=Somchai+Wong&background=dc2626&color=fff&size=128&bold=true"
+            },
+            {
+                name: "Maya Tan",
+                avatarUrl: "https://ui-avatars.com/api/?name=Maya+Tan&background=059669&color=fff&size=128&bold=true"
+            }
+        ],
+        createdAt: new Date().toISOString()
+    },
+    {
+        id: "startup-19",
+        name: "SpaceCargo",
+        email: "contact@spacecargo.space",
+        industry: "Aerospace",
+        stage: "Series B",
+        raising: 40_000_000,
+        geography: "US",
+        description:
+            "Reusable satellite delivery vehicles for low Earth orbit. 8 successful launches. Contracts with NASA, SpaceX, and ESA. 60% cost reduction vs traditional launch providers. Ex-Blue Origin team.",
+        website: "spacecargo.space",
+        metrics: {
+            arr: 18_000_000,
+            customers: 12
+        },
+        founders: [
+            {
+                name: "Captain Rachel Torres",
+                avatarUrl: "https://ui-avatars.com/api/?name=Rachel+Torres&background=1e3a8a&color=fff&size=128&bold=true"
+            },
+            {
+                name: "Dr. Yuki Tanaka",
+                avatarUrl: "https://ui-avatars.com/api/?name=Yuki+Tanaka&background=7c3aed&color=fff&size=128&bold=true"
+            }
+        ],
+        createdAt: new Date().toISOString()
+    },
+    {
+        id: "startup-20",
+        name: "FoodChain",
+        email: "team@foodchain.tech",
+        industry: "Supply Chain",
+        stage: "Seed",
+        raising: 2_200_000,
+        geography: "Latin America",
+        description:
+            "Blockchain-based food traceability for preventing fraud and ensuring safety. Tracking coffee, cocoa, and beef across Brazil, Colombia, and Argentina. 200+ farms onboarded. Walmart pilot program.",
+        website: "foodchain.tech",
+        metrics: {
+            customers: 200,
+            arr: 650_000,
+            growth: "45% QoQ"
+        },
+        founders: [
+            {
+                name: "Isabella Costa",
+                avatarUrl: "https://ui-avatars.com/api/?name=Isabella+Costa&background=15803d&color=fff&size=128&bold=true"
+            },
+            {
+                name: "Felipe Moreno",
+                avatarUrl: "https://ui-avatars.com/api/?name=Felipe+Moreno&background=b45309&color=fff&size=128&bold=true"
+            }
+        ],
+        createdAt: new Date().toISOString()
+    },
+    {
+        id: "startup-21",
+        name: "MindfulAI",
+        email: "founders@mindful.ai",
+        industry: "Mental Health",
+        stage: "Seed",
+        raising: 3_000_000,
+        geography: "US",
+        description:
+            "AI therapist for preventive mental health care. 100K users with 4.8 app store rating. Clinical validation showing 65% reduction in anxiety scores. B2B2C model through employers and insurers.",
+        website: "mindful.ai",
+        metrics: {
+            customers: 100_000,
+            arr: 2_400_000,
+            growth: "50% MoM"
+        },
+        founders: [
+            {
+                name: "Dr. Emily Zhang",
+                avatarUrl: "https://ui-avatars.com/api/?name=Emily+Zhang&background=7e22ce&color=fff&size=128&bold=true"
+            },
+            {
+                name: "Nathan Brooks",
+                avatarUrl: "https://ui-avatars.com/api/?name=Nathan+Brooks&background=0e7490&color=fff&size=128&bold=true"
+            }
+        ],
+        createdAt: new Date().toISOString()
+    },
+    {
+        id: "startup-22",
+        name: "BuilderOS",
+        email: "hello@builderos.dev",
+        industry: "Developer Tools",
+        stage: "Pre-seed",
+        raising: 600_000,
+        geography: "US",
+        description:
+            "AI-powered code review and refactoring tool. 5K developers at 200 companies. Catches 3x more bugs than traditional linters. Integrates with GitHub, GitLab, and Bitbucket. YC alumni founders.",
+        website: "builderos.dev",
+        metrics: {
+            customers: 5_000,
+            arr: 180_000,
+            growth: "70% MoM"
+        },
+        founders: [
+            {
+                name: "Kevin Huang",
+                avatarUrl: "https://ui-avatars.com/api/?name=Kevin+Huang&background=4338ca&color=fff&size=128&bold=true"
+            }
+        ],
+        createdAt: new Date().toISOString()
+    },
+    {
+        id: "startup-23",
+        name: "UrbanMobility",
+        email: "contact@urbanmobility.city",
+        industry: "Transportation",
+        stage: "Series A",
+        raising: 10_000_000,
+        geography: "Asia",
+        description:
+            "Autonomous shuttle service for corporate campuses and universities. Operating in Singapore, Seoul, and Tokyo. 50K rides completed with zero accidents. Partnerships with 10 universities and 5 tech campuses.",
+        website: "urbanmobility.city",
+        metrics: {
+            customers: 15,
+            arr: 5_000_000,
+            growth: "35% QoQ"
+        },
+        founders: [
+            {
+                name: "Dr. Hiroshi Yamamoto",
+                avatarUrl: "https://ui-avatars.com/api/?name=Hiroshi+Yamamoto&background=0c4a6e&color=fff&size=128&bold=true"
+            },
+            {
+                name: "Mei Lin",
+                avatarUrl: "https://ui-avatars.com/api/?name=Mei+Lin&background=be123c&color=fff&size=128&bold=true"
+            },
+            {
+                name: "Karthik Reddy",
+                avatarUrl: "https://ui-avatars.com/api/?name=Karthik+Reddy&background=047857&color=fff&size=128&bold=true"
+            }
+        ],
+        createdAt: new Date().toISOString()
+    },
+    {
+        id: "startup-24",
+        name: "BioMaterial",
+        email: "team@biomaterial.bio",
+        industry: "Materials Science",
+        stage: "Seed",
+        raising: 4_500_000,
+        geography: "Europe",
+        description:
+            "Biodegradable plastic alternative from agricultural waste. Carbon-negative production. Partnerships with Unilever and Nestlé for packaging. Pilot production facility in Netherlands producing 100 tons monthly.",
+        website: "biomaterial.bio",
+        metrics: {
+            customers: 12,
+            arr: 1_500_000
+        },
+        founders: [
+            {
+                name: "Dr. Anna Bergström",
+                avatarUrl: "https://ui-avatars.com/api/?name=Anna+Bergstrom&background=065f46&color=fff&size=128&bold=true"
+            },
+            {
+                name: "Dr. Marco Bianchi",
+                avatarUrl: "https://ui-avatars.com/api/?name=Marco+Bianchi&background=92400e&color=fff&size=128&bold=true"
+            }
+        ],
+        createdAt: new Date().toISOString()
+    },
+    {
+        id: "startup-25",
+        name: "LegalTech Pro",
+        email: "founders@legaltech.pro",
+        industry: "LegalTech",
+        stage: "Series A",
+        raising: 7_000_000,
+        geography: "US",
+        description:
+            "AI contract analysis for M&A due diligence. Reducing review time from weeks to hours. 40 law firms and 60 corporate legal teams as clients. Processing $50B in deal value annually.",
+        website: "legaltech.pro",
+        metrics: {
+            arr: 5_500_000,
+            customers: 100,
+            growth: "25% MoM"
+        },
+        founders: [
+            {
+                name: "Sarah Mitchell",
+                avatarUrl: "https://ui-avatars.com/api/?name=Sarah+Mitchell&background=6d28d9&color=fff&size=128&bold=true"
+            },
+            {
+                name: "Andrew Goldstein",
+                avatarUrl: "https://ui-avatars.com/api/?name=Andrew+Goldstein&background=b91c1c&color=fff&size=128&bold=true"
+            }
+        ],
+        createdAt: new Date().toISOString()
+    },
+    {
+        id: "startup-26",
+        name: "PropelAI",
+        email: "hello@propel.ai",
+        industry: "Marketing Tech",
+        stage: "Seed",
+        raising: 2_000_000,
+        geography: "Australia",
+        description:
+            "AI-generated personalized video ads at scale. 150 DTC brands including 5 unicorns. 4x improvement in conversion rates. Processing 1M+ video variations monthly. Integrates with Meta, Google, and TikTok ads.",
+        website: "propel.ai",
+        metrics: {
+            arr: 1_300_000,
+            customers: 150,
+            growth: "40% MoM"
+        },
+        founders: [
+            {
+                name: "Jake Morrison",
+                avatarUrl: "https://ui-avatars.com/api/?name=Jake+Morrison&background=be123c&color=fff&size=128&bold=true"
+            },
+            {
+                name: "Sophia Lee",
+                avatarUrl: "https://ui-avatars.com/api/?name=Sophia+Lee&background=0891b2&color=fff&size=128&bold=true"
+            }
+        ],
+        createdAt: new Date().toISOString()
     }
 ];
 
