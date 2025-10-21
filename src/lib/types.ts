@@ -123,3 +123,29 @@ export type MatchInsights = {
     icebreaker: string;
 };
 
+/**
+ * Note entry for a specific startup
+ * 
+ * Allows investors to maintain personal notes and observations
+ * about startups they're tracking or considering.
+ */
+export type StartupNote = {
+    /** Unique identifier for the note */
+    id: string;
+
+    /** Clerk user ID of the investor who created the note */
+    clerkUserId: string;
+
+    /** ID of the startup this note is about */
+    startupId: string;
+
+    /** Note content - free-form text */
+    content: string;
+
+    /** Creation timestamp (ISO 8601) */
+    createdAt: string;
+
+    /** Last update timestamp (ISO 8601) */
+    updatedAt: string;
+};
+

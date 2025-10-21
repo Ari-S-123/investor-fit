@@ -3,6 +3,7 @@ import { ClerkProvider } from "@clerk/nextjs";
 import { Geist, Geist_Mono } from "next/font/google";
 import { ThemeProvider } from "@/components/theme-provider";
 import { ModeToggle } from "@/components/theme-toggle";
+import { UserMenu } from "@/components/user-menu";
 import "./globals.css";
 
 const geistSans = Geist({
@@ -33,6 +34,11 @@ export const metadata: Metadata = {
  * - Persists user preference
  * - Supports system theme detection
  *
+ * Navigation:
+ * - User menu with avatar and sign-out functionality
+ * - Theme toggle for dark/light mode switching
+ * - Fixed positioning in top-right corner
+ *
  * @see https://clerk.com/docs/nextjs/getting-started/quickstart
  */
 export default function RootLayout({
@@ -45,8 +51,9 @@ export default function RootLayout({
             <html lang="en" suppressHydrationWarning>
                 <body className={`${geistSans.variable} ${geistMono.variable} antialiased`}>
                     <ThemeProvider attribute="class" defaultTheme="system" enableSystem disableTransitionOnChange>
-                        <div className="fixed top-4 right-4 z-50">
+                        <div className="fixed top-4 right-4 z-50 flex items-center gap-3">
                             <ModeToggle />
+                            <UserMenu />
                         </div>
                         {children}
                     </ThemeProvider>

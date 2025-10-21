@@ -6,6 +6,7 @@ import { useState, useEffect } from "react";
 import { Button } from "@/components/ui/button";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { Badge } from "@/components/ui/badge";
+import { NotesDialog } from "@/components/notes-dialog";
 import type { MatchResult } from "@/lib/types";
 
 /**
@@ -35,6 +36,11 @@ export default function MatchesPage() {
     const [isLoading, setIsLoading] = useState(true);
     const [expandedId, setExpandedId] = useState<string | null>(null);
     const [copiedId, setCopiedId] = useState<string | null>(null);
+    const [notesDialogOpen, setNotesDialogOpen] = useState(false);
+    const [selectedStartup, setSelectedStartup] = useState<{
+        id: string;
+        name: string;
+    } | null>(null);
 
     useEffect(() => {
         if (!isLoaded) return;
@@ -92,6 +98,17 @@ export default function MatchesPage() {
     };
 
     /**
+     * Open notes dialog for a specific startup
+     *
+     * @param startupId - The startup ID
+     * @param startupName - The startup name
+     */
+    const openNotes = (startupId: string, startupName: string) => {
+        setSelectedStartup({ id: startupId, name: startupName });
+        setNotesDialogOpen(true);
+    };
+
+    /**
      * Format currency amounts for display
      *
      * Converts to millions (M) or thousands (K) notation
@@ -140,17 +157,34 @@ export default function MatchesPage() {
 
                                     {/* Company Info */}
                                     <div className="flex-1">
-                                        <CardTitle className="text-2xl mb-2">{match.profile.name}</CardTitle>
-                                        {match.profile.website && (
-                                            <a
-                                                href={`https://${match.profile.website}`}
-                                                target="_blank"
-                                                rel="noopener noreferrer"
-                                                className="text-sm text-primary hover:underline"
+                                        <div className="flex items-start justify-between gap-3">
+                                            <div>
+                                                <CardTitle className="text-2xl mb-2">
+                                                    {match.profile.name}
+                                                </CardTitle>
+                                                {match.profile.website && (
+                                                    <a
+                                                        href={`https://${match.profile.website}`}
+                                                        target="_blank"
+                                                        rel="noopener noreferrer"
+                                                        className="text-sm text-primary hover:underline"
+                                                    >
+                                                        {match.profile.website}
+                                                    </a>
+                                                )}
+                                            </div>
+                                            {/* Notes Button */}
+                                            <Button
+                                                variant="outline"
+                                                size="sm"
+                                                onClick={() =>
+                                                    openNotes(match.profile.id, match.profile.name)
+                                                }
+                                                className="shrink-0"
                                             >
-                                                {match.profile.website}
-                                            </a>
-                                        )}
+                                                📝 Notes
+                                            </Button>
+                                        </div>
                                     </div>
                                 </div>
 
@@ -251,6 +285,16 @@ export default function MatchesPage() {
                         ← Update Your Preferences
                     </Button>
                 </div>
+
+                {/* Notes Dialog */}
+                {selectedStartup && (
+                    <NotesDialog
+                        open={notesDialogOpen}
+                        onOpenChange={setNotesDialogOpen}
+                        startupId={selectedStartup.id}
+                        startupName={selectedStartup.name}
+                    />
+                )}
             </div>
         </div>
     );

@@ -1,4 +1,4 @@
-import type { InvestorProfile, StartupProfile } from "./types";
+import type { InvestorProfile, StartupProfile, StartupNote } from "./types";
 
 /**
  * In-memory data store for MVP
@@ -18,6 +18,12 @@ class DataStore {
 
     /** All startup profiles */
     private startups: StartupProfile[] = [];
+
+    /** 
+     * Startup notes keyed by composite key: `${clerkUserId}:${startupId}`
+     * Allows each investor to maintain separate notes per startup
+     */
+    private notes: Map<string, StartupNote> = new Map();
 
     /**
      * Save investor profile
@@ -59,11 +65,67 @@ class DataStore {
     }
 
     /**
+     * Save or update a note for a startup
+     *
+     * @param note - The note to save
+     */
+    saveNote(note: StartupNote): void {
+        const key = `${note.clerkUserId}:${note.startupId}`;
+        this.notes.set(key, note);
+        console.log(`📝 Saved note for startup ${note.startupId} by user ${note.clerkUserId}`);
+    }
+
+    /**
+     * Get a note for a specific startup by a specific user
+     *
+     * @param clerkUserId - The Clerk user ID
+     * @param startupId - The startup ID
+     * @returns The note if found, undefined otherwise
+     */
+    getNote(clerkUserId: string, startupId: string): StartupNote | undefined {
+        const key = `${clerkUserId}:${startupId}`;
+        return this.notes.get(key);
+    }
+
+    /**
+     * Get all notes for a specific user
+     *
+     * @param clerkUserId - The Clerk user ID
+     * @returns Array of all notes created by the user
+     */
+    getUserNotes(clerkUserId: string): StartupNote[] {
+        const userNotes: StartupNote[] = [];
+        for (const [key, note] of this.notes.entries()) {
+            if (key.startsWith(`${clerkUserId}:`)) {
+                userNotes.push(note);
+            }
+        }
+        return userNotes;
+    }
+
+    /**
+     * Delete a note for a startup
+     *
+     * @param clerkUserId - The Clerk user ID
+     * @param startupId - The startup ID
+     * @returns true if note was deleted, false if it didn't exist
+     */
+    deleteNote(clerkUserId: string, startupId: string): boolean {
+        const key = `${clerkUserId}:${startupId}`;
+        const deleted = this.notes.delete(key);
+        if (deleted) {
+            console.log(`🗑️ Deleted note for startup ${startupId} by user ${clerkUserId}`);
+        }
+        return deleted;
+    }
+
+    /**
      * Clear all data (testing only)
      */
     clear(): void {
         this.investors.clear();
         this.startups = [];
+        this.notes.clear();
     }
 }
 
