@@ -395,13 +395,6 @@ export default function MatchesPage() {
                                     {sendingMessage?.content}
                                 </p>
                             </div>
-                            <div className="mt-4 p-4 bg-blue-50 dark:bg-blue-950/20 border border-blue-200 dark:border-blue-900 rounded-md">
-                                <p className="text-sm text-blue-900 dark:text-blue-100">
-                                    <span className="font-semibold">Note:</span> Email sending functionality is not
-                                    implemented in this demo. In a production environment, this would send an
-                                    email to the startup founders at {sendingMessage?.startupName}.
-                                </p>
-                            </div>
                         </div>
 
                         <DialogFooter>
