@@ -47,6 +47,17 @@ export type InvestorProfile = {
 };
 
 /**
+ * Founder information for a startup
+ */
+export type Founder = {
+    /** Founder's full name */
+    name: string;
+
+    /** Avatar image URL */
+    avatarUrl: string;
+};
+
+/**
  * Startup profile for matching
  */
 export type StartupProfile = {
@@ -86,6 +97,9 @@ export type StartupProfile = {
         /** Growth rate */
         growth?: string;
     };
+
+    /** Founders of the startup */
+    founders: Founder[];
 
     /** Creation timestamp */
     createdAt: string;

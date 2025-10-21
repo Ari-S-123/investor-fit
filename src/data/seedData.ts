@@ -23,6 +23,16 @@ export const seedStartups: StartupProfile[] = [
             customers: 50,
             growth: "25% MoM"
         },
+        founders: [
+            {
+                name: "Dr. Maria Santos",
+                avatarUrl: "https://ui-avatars.com/api/?name=Maria+Santos&background=4f46e5&color=fff&size=128&bold=true"
+            },
+            {
+                name: "Dr. Raj Patel",
+                avatarUrl: "https://ui-avatars.com/api/?name=Raj+Patel&background=0ea5e9&color=fff&size=128&bold=true"
+            }
+        ],
         createdAt: new Date().toISOString()
     },
     {
@@ -40,6 +50,16 @@ export const seedStartups: StartupProfile[] = [
             customers: 10,
             arr: 1_200_000
         },
+        founders: [
+            {
+                name: "Sarah Chen",
+                avatarUrl: "https://ui-avatars.com/api/?name=Sarah+Chen&background=10b981&color=fff&size=128&bold=true"
+            },
+            {
+                name: "Michael Torres",
+                avatarUrl: "https://ui-avatars.com/api/?name=Michael+Torres&background=f59e0b&color=fff&size=128&bold=true"
+            }
+        ],
         createdAt: new Date().toISOString()
     },
     {
@@ -57,6 +77,20 @@ export const seedStartups: StartupProfile[] = [
             arr: 15_000_000,
             customers: 200
         },
+        founders: [
+            {
+                name: "Carlos Rodriguez",
+                avatarUrl: "https://ui-avatars.com/api/?name=Carlos+Rodriguez&background=8b5cf6&color=fff&size=128&bold=true"
+            },
+            {
+                name: "Ana Silva",
+                avatarUrl: "https://ui-avatars.com/api/?name=Ana+Silva&background=ec4899&color=fff&size=128&bold=true"
+            },
+            {
+                name: "Diego Martinez",
+                avatarUrl: "https://ui-avatars.com/api/?name=Diego+Martinez&background=14b8a6&color=fff&size=128&bold=true"
+            }
+        ],
         createdAt: new Date().toISOString()
     },
     {
@@ -74,6 +108,16 @@ export const seedStartups: StartupProfile[] = [
             customers: 50_000,
             growth: "40% weekly retention"
         },
+        founders: [
+            {
+                name: "Emma Johnson",
+                avatarUrl: "https://ui-avatars.com/api/?name=Emma+Johnson&background=f43f5e&color=fff&size=128&bold=true"
+            },
+            {
+                name: "Tyler Davis",
+                avatarUrl: "https://ui-avatars.com/api/?name=Tyler+Davis&background=3b82f6&color=fff&size=128&bold=true"
+            }
+        ],
         createdAt: new Date().toISOString()
     },
     {
@@ -90,6 +134,16 @@ export const seedStartups: StartupProfile[] = [
         metrics: {
             customers: 2
         },
+        founders: [
+            {
+                name: "James Kim",
+                avatarUrl: "https://ui-avatars.com/api/?name=James+Kim&background=6366f1&color=fff&size=128&bold=true"
+            },
+            {
+                name: "Lisa Anderson",
+                avatarUrl: "https://ui-avatars.com/api/?name=Lisa+Anderson&background=a855f7&color=fff&size=128&bold=true"
+            }
+        ],
         createdAt: new Date().toISOString()
     },
     {
@@ -108,6 +162,12 @@ export const seedStartups: StartupProfile[] = [
             customers: 75,
             growth: "15% MoM"
         },
+        founders: [
+            {
+                name: "Robert Williams",
+                avatarUrl: "https://ui-avatars.com/api/?name=Robert+Williams&background=059669&color=fff&size=128&bold=true"
+            }
+        ],
         createdAt: new Date().toISOString()
     },
     {
@@ -124,6 +184,16 @@ export const seedStartups: StartupProfile[] = [
         metrics: {
             customers: 8
         },
+        founders: [
+            {
+                name: "Dr. Henrik Larsson",
+                avatarUrl: "https://ui-avatars.com/api/?name=Henrik+Larsson&background=0891b2&color=fff&size=128&bold=true"
+            },
+            {
+                name: "Sophie Dubois",
+                avatarUrl: "https://ui-avatars.com/api/?name=Sophie+Dubois&background=7c3aed&color=fff&size=128&bold=true"
+            }
+        ],
         createdAt: new Date().toISOString()
     },
     {
@@ -141,6 +211,16 @@ export const seedStartups: StartupProfile[] = [
             customers: 25_000,
             growth: "30% MoM GMV"
         },
+        founders: [
+            {
+                name: "Olivia Brown",
+                avatarUrl: "https://ui-avatars.com/api/?name=Olivia+Brown&background=d97706&color=fff&size=128&bold=true"
+            },
+            {
+                name: "Marcus Thompson",
+                avatarUrl: "https://ui-avatars.com/api/?name=Marcus+Thompson&background=dc2626&color=fff&size=128&bold=true"
+            }
+        ],
         createdAt: new Date().toISOString()
     }
 ];

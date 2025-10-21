@@ -7,6 +7,17 @@ import { Button } from "@/components/ui/button";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { Badge } from "@/components/ui/badge";
 import { NotesDialog } from "@/components/notes-dialog";
+import { FounderAvatarGroup } from "@/components/founder-avatar-group";
+import { Textarea } from "@/components/ui/textarea";
+import { Label } from "@/components/ui/label";
+import {
+    Dialog,
+    DialogContent,
+    DialogDescription,
+    DialogFooter,
+    DialogHeader,
+    DialogTitle,
+} from "@/components/ui/dialog";
 import type { MatchResult } from "@/lib/types";
 
 /**
@@ -18,10 +29,12 @@ import type { MatchResult } from "@/lib/types";
  * Features:
  * - Ranked startup list (1-5) with card-based UI
  * - Expandable cards showing AI-generated icebreakers
- * - Copy-to-clipboard functionality for intro messages
+ * - Editable textarea for customizing intro messages
+ * - Send button with confirmation dialog for message preparation
  * - Company details: name, website, industry, stage, raising, geography
  * - Business metrics: ARR, customers, growth rate
  * - AI explanation with visual highlighting
+ * - Private notes functionality for each startup
  * - Loading states with animations
  * - Mobile-responsive layout
  * - Error handling and redirects
@@ -35,11 +48,16 @@ export default function MatchesPage() {
     const [matches, setMatches] = useState<MatchResult[]>([]);
     const [isLoading, setIsLoading] = useState(true);
     const [expandedId, setExpandedId] = useState<string | null>(null);
-    const [copiedId, setCopiedId] = useState<string | null>(null);
     const [notesDialogOpen, setNotesDialogOpen] = useState(false);
     const [selectedStartup, setSelectedStartup] = useState<{
         id: string;
         name: string;
+    } | null>(null);
+    const [messageContent, setMessageContent] = useState<Record<string, string>>({});
+    const [confirmDialogOpen, setConfirmDialogOpen] = useState(false);
+    const [sendingMessage, setSendingMessage] = useState<{
+        startupName: string;
+        content: string;
     } | null>(null);
 
     useEffect(() => {
@@ -72,6 +90,13 @@ export default function MatchesPage() {
 
                 const data = await response.json();
                 setMatches(data.matches);
+                
+                // Initialize message content with icebreakers
+                const initialMessages: Record<string, string> = {};
+                data.matches.forEach((match: MatchResult) => {
+                    initialMessages[match.profile.id] = match.icebreaker;
+                });
+                setMessageContent(initialMessages);
             } catch (error) {
                 console.error("Failed to fetch matches:", error);
                 alert("Failed to load matches. Please try again.");
@@ -84,17 +109,47 @@ export default function MatchesPage() {
     }, [user, isLoaded, router]);
 
     /**
-     * Copy icebreaker message to clipboard
+     * Handle message content change
      *
-     * Shows visual feedback for 2 seconds after copying
+     * Updates the message content for a specific startup
      *
-     * @param icebreaker - The intro message to copy
-     * @param id - Profile ID for visual feedback
+     * @param startupId - The startup ID
+     * @param content - The new message content
      */
-    const copyIcebreaker = (icebreaker: string, id: string) => {
-        navigator.clipboard.writeText(icebreaker);
-        setCopiedId(id);
-        setTimeout(() => setCopiedId(null), 2000);
+    const handleMessageChange = (startupId: string, content: string) => {
+        setMessageContent((prev) => ({
+            ...prev,
+            [startupId]: content,
+        }));
+    };
+
+    /**
+     * Handle send button click
+     *
+     * Opens confirmation dialog with the message details
+     *
+     * @param startupName - The startup name
+     * @param startupId - The startup ID
+     */
+    const handleSendClick = (startupName: string, startupId: string) => {
+        setSendingMessage({
+            startupName,
+            content: messageContent[startupId] || "",
+        });
+        setConfirmDialogOpen(true);
+    };
+
+    /**
+     * Confirm and "send" the message
+     *
+     * In a real implementation, this would trigger an email send.
+     * For now, it just closes the dialog with confirmation.
+     */
+    const confirmSend = () => {
+        // In a real implementation, this would call an API to send the email
+        // For now, we just close the dialog
+        setConfirmDialogOpen(false);
+        setSendingMessage(null);
     };
 
     /**
@@ -254,23 +309,50 @@ export default function MatchesPage() {
                                 {/* Expanded Details */}
                                 {expandedId === match.profile.id && (
                                     <div className="pt-4 border-t space-y-4">
-                                        <div>
-                                            <p className="font-semibold text-foreground mb-2 flex items-center gap-2">
+                                        <div className="space-y-3">
+                                            <Label htmlFor={`message-${match.profile.id}`} className="font-semibold text-foreground flex items-center gap-2">
                                                 <span>📨</span> AI-Generated Intro Message:
+                                            </Label>
+                                            <p className="text-sm text-muted-foreground">
+                                                Edit the message below and click Send to prepare your introduction.
                                             </p>
-                                            <div className="bg-muted p-4 rounded-lg mb-3">
-                                                <p className="text-foreground italic leading-relaxed">
-                                                    &ldquo;{match.icebreaker}&rdquo;
+                                            <Textarea
+                                                id={`message-${match.profile.id}`}
+                                                value={messageContent[match.profile.id] || ""}
+                                                onChange={(e) =>
+                                                    handleMessageChange(match.profile.id, e.target.value)
+                                                }
+                                                className="min-h-[150px] resize-y"
+                                                placeholder="Enter your intro message here..."
+                                            />
+                                            <div className="flex items-center justify-between">
+                                                <p className="text-sm text-muted-foreground">
+                                                    {(messageContent[match.profile.id] || "").length} characters
                                                 </p>
+                                                <Button
+                                                    onClick={() =>
+                                                        handleSendClick(match.profile.name, match.profile.id)
+                                                    }
+                                                    disabled={
+                                                        !messageContent[match.profile.id] ||
+                                                        messageContent[match.profile.id].trim() === ""
+                                                    }
+                                                >
+                                                    Send Message
+                                                </Button>
                                             </div>
-                                            <Button onClick={() => copyIcebreaker(match.icebreaker, match.profile.id)}>
-                                                {copiedId === match.profile.id ? "✓ Copied!" : "Copy Message"}
-                                            </Button>
                                         </div>
 
-                                        <div className="text-sm text-muted-foreground">
-                                            <p className="font-semibold text-foreground mb-1">Contact:</p>
-                                            <p>{match.profile.email}</p>
+                                        <div className="space-y-3">
+                                            <div className="text-sm text-muted-foreground">
+                                                <p className="font-semibold text-foreground mb-2">Founders:</p>
+                                                <FounderAvatarGroup founders={match.profile.founders} maxDisplay={3} />
+                                            </div>
+
+                                            <div className="text-sm text-muted-foreground">
+                                                <p className="font-semibold text-foreground mb-1">Contact:</p>
+                                                <p>{match.profile.email}</p>
+                                            </div>
                                         </div>
                                     </div>
                                 )}
@@ -295,6 +377,46 @@ export default function MatchesPage() {
                         startupName={selectedStartup.name}
                     />
                 )}
+
+                {/* Send Confirmation Dialog */}
+                <Dialog open={confirmDialogOpen} onOpenChange={setConfirmDialogOpen}>
+                    <DialogContent className="sm:max-w-[600px]">
+                        <DialogHeader>
+                            <DialogTitle>Confirm Send Message</DialogTitle>
+                            <DialogDescription>
+                                Review your message before sending to {sendingMessage?.startupName}.
+                            </DialogDescription>
+                        </DialogHeader>
+
+                        <div className="py-4">
+                            <div className="bg-muted p-4 rounded-lg">
+                                <p className="text-sm font-medium text-foreground mb-2">Message Preview:</p>
+                                <p className="text-foreground whitespace-pre-wrap leading-relaxed">
+                                    {sendingMessage?.content}
+                                </p>
+                            </div>
+                            <div className="mt-4 p-4 bg-blue-50 dark:bg-blue-950/20 border border-blue-200 dark:border-blue-900 rounded-md">
+                                <p className="text-sm text-blue-900 dark:text-blue-100">
+                                    <span className="font-semibold">Note:</span> Email sending functionality is not
+                                    implemented in this demo. In a production environment, this would send an
+                                    email to the startup founders at {sendingMessage?.startupName}.
+                                </p>
+                            </div>
+                        </div>
+
+                        <DialogFooter>
+                            <Button
+                                variant="outline"
+                                onClick={() => setConfirmDialogOpen(false)}
+                            >
+                                Cancel
+                            </Button>
+                            <Button onClick={confirmSend}>
+                                Confirm Send
+                            </Button>
+                        </DialogFooter>
+                    </DialogContent>
+                </Dialog>
             </div>
         </div>
     );
